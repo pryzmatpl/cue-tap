@@ -1,0 +1,27 @@
+{
+  "name": "cuetap-chrome",
+  "version": "0.1.0",
+  "description": "The CueTap Chrome extension. Recovers the highlighting and colour an author used in a document and delivers it to the composer with the emphasis intact.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "files": [
+    "manifest.json",
+    "background.js",
+    "sites.json",
+    "shared/",
+    "content/",
+    "popup/",
+    "icons/"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "node --check background.js && node --check content/content.js && node --check shared/multipart.js && node --check shared/sites.js && node --check popup/popup.js",
+    "typecheck": "node --check background.js && node --check content/content.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1",
+    "vitest": "^2.1.8"
+  }
+}

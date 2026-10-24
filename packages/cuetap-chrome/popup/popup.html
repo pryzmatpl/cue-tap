@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CueTap</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="header">
+        <h1>CueTap</h1>
+        <p class="tagline">Keep the author's emphasis.</p>
+      </header>
+
+      <section class="status" id="status" aria-live="polite">
+        <span class="dot" id="dot"></span>
+        <div>
+          <p class="status-line" id="status-line">Checking…</p>
+          <p class="status-detail" id="status-detail"></p>
+        </div>
+      </section>
+
+      <section class="panel" id="panel" hidden>
+        <h2>Cues in the last document</h2>
+        <p class="cues-count" id="cues-count">0 cues</p>
+        <ul class="cue-list" id="cue-list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Local service</h2>
+        <label class="field">
+          <span>Service URL</span>
+          <input type="text" id="service-url" spellcheck="false" />
+        </label>
+        <p class="hint" id="service-state">Checking the service…</p>
+        <button id="test-service" type="button" class="button">Test connection</button>
+      </section>
+
+      <section class="panel">
+        <label class="toggle">
+          <input type="checkbox" id="enabled" />
+          <span>Enable CueTap</span>
+        </label>
+        <p class="hint">
+          Everything runs on this machine. Document content is never sent to us, and there is no
+          telemetry.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Supported sites</h2>
+        <ul class="site-list" id="site-list"></ul>
+      </section>
+
+      <footer class="footer">
+        <a href="https://github.com/pryzmatpl/cue-tap" target="_blank" rel="noreferrer">Source</a>
+        <span aria-hidden="true">·</span>
+        <span>MIT licensed</span>
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

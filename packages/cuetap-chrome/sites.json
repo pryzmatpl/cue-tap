@@ -1,0 +1,96 @@
+{
+  "$schema": "./sites.schema.json",
+  "$comment": "The per-site capability manifest. CueTap only intercepts uploads on sites listed here. A site that is absent is left alone — an honest 'not supported' beats a silent cue loss. 'mode' records how the site's upload mechanism was observed: 'network' means the composer posts the file bytes over HTTP and CueTap can enrich the request; 'input' means the composer reads the file client-side, so CueTap attaches the enriched text alongside the file instead.",
+  "protocol": 1,
+  "sites": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "hosts": ["chatgpt.com", "chat.openai.com"],
+      "mode": "network",
+      "status": "verified",
+      "verifiedOn": "2026-10-24",
+      "notes": "Composer posts multipart/form-data to the file-upload endpoint. The file part is addressable and the request carries no body signature."
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "hosts": ["claude.ai"],
+      "mode": "network",
+      "status": "verified",
+      "verifiedOn": "2026-10-24",
+      "notes": "Composer posts multipart/form-data to the file-upload endpoint."
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "hosts": ["gemini.google.com"],
+      "mode": "network",
+      "status": "verified",
+      "verifiedOn": "2026-10-24",
+      "notes": "Composer posts multipart/form-data to the file-upload endpoint."
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "hosts": ["discord.com"],
+      "mode": "network",
+      "status": "verified",
+      "verifiedOn": "2026-10-24",
+      "notes": "Attachment upload is a multipart request with a per-file reference. Every non-file part is preserved byte-for-byte on rewrite."
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "hosts": ["slack.com", "app.slack.com"],
+      "mode": "network",
+      "status": "verified",
+      "verifiedOn": "2026-10-24",
+      "notes": "Attachment upload is a multipart request."
+    },
+    {
+      "id": "microsoft-copilot",
+      "name": "Microsoft Copilot",
+      "hosts": ["copilot.microsoft.com"],
+      "mode": "network",
+      "status": "verified",
+      "verifiedOn": "2026-10-24",
+      "notes": "Composer posts multipart/form-data to the file-upload endpoint."
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "hosts": ["perplexity.ai"],
+      "mode": "network",
+      "status": "verified",
+      "verifiedOn": "2026-10-24",
+      "notes": "Composer posts multipart/form-data to the file-upload endpoint."
+    }
+  ],
+  "unverified": [
+    {
+      "id": "notion",
+      "name": "Notion",
+      "hosts": ["notion.so"],
+      "mode": "unknown",
+      "status": "unverified",
+      "notes": "Upload mechanism not yet surveyed. CueTap does not intercept here."
+    },
+    {
+      "id": "linear",
+      "name": "Linear",
+      "hosts": ["linear.app"],
+      "mode": "unknown",
+      "status": "unverified",
+      "notes": "Upload mechanism not yet surveyed. CueTap does not intercept here."
+    },
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "hosts": ["mail.google.com"],
+      "mode": "unknown",
+      "status": "unverified",
+      "notes": "Draft attachments use a resumable upload with a separate finalization step; not yet surveyed. CueTap does not intercept here."
+    }
+  ]
+}

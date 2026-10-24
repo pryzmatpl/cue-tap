@@ -1,0 +1,23 @@
+{
+  "name": "cue-tap",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CueTap — recover the authoring cues that ordinary document conversion destroys, and deliver documents to chat composers with the emphasis intact.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/cuelayer",
+    "packages/cuetap-chrome"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "verify": "npm run typecheck && npm run test && npm run build"
+  }
+}
